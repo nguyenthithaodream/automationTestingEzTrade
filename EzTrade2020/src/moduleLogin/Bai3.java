@@ -1,4 +1,4 @@
-package demo;
+package moduleLogin;
 
 
 import org.testng.annotations.AfterMethod;
@@ -48,14 +48,14 @@ public class Bai3 {
 		//Navigate "Forgot Password"
 		driver.findElement(By.xpath("//*[@id=\"logindivBox\"]/div[1]/div[3]/a[1]")).click();
 		//Verify navigate title of "Forgot Password"
-		//assertEquals("Câu hỏi thường gặp", driver.getTitle());
+		//assertEquals("Câu h�?i thư�?ng gặp", driver.getTitle());
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		assertEquals("https://accounts.fpts.com.vn/forgotpassword", driver.getTitle());
 
 		//Navigate "Help"
 		driver.findElement(By.xpath("//a[@href='/help']"));
 		//Verify navigate title of "Forgot Password"
-		assertEquals("Câu hỏi thường gặp", driver.getTitle());
+		assertEquals("Câu h�?i thư�?ng gặp", driver.getTitle());
 	
 
 		//Navigate "Mo tai khoan"
@@ -66,22 +66,22 @@ public class Bai3 {
 		//Click link "EzTrade - giao dịch chứng khoán cơ sở"
 		driver.findElement(By.xpath("//a[@class='fpts-menu-item fpts-eztrade']"));
 		//Verify navigate title of "Forgot Password"
-		assertEquals("FPTS Accounts :: Đăng nhập", driver.getTitle());
+		assertEquals("FPTS Accounts :: �?ăng nhập", driver.getTitle());
 		
 		//Click link "EzFutures - giao dịch chứng khoán phái sinh "
 		driver.findElement(By.xpath("//a[@class='fpts-menu-item fpts-ezfutures']"));
 		//Verify navigate title of "Forgot Password"
-		assertEquals("FPTS Accounts :: Đăng nhập", driver.getTitle());
+		assertEquals("FPTS Accounts :: �?ăng nhập", driver.getTitle());
 		
 		//Click link "LivePrice - Bảng giá chứng khoán "
 		driver.findElement(By.xpath("//a[@class='fpts-menu-item fpts-liveprice']"));
 		//Verify navigate title of "Forgot Password"
-		assertEquals("FPTS Accounts :: Đăng nhập", driver.getTitle());
+		assertEquals("FPTS Accounts :: �?ăng nhập", driver.getTitle());
 		
-		//Click link "EzTransfer - Chuyển tiền trực tuyến "
+		//Click link "EzTransfer - Chuyển ti�?n trực tuyến "
 		driver.findElement(By.xpath("//a[@class='fpts-menu-item fpts-eztransfer active']"));
 		//Verify navigate title of "Forgot Password"
-		assertEquals("FPTS Accounts :: Đăng nhập", driver.getTitle());
+		assertEquals("FPTS Accounts :: �?ăng nhập", driver.getTitle());
 	}
 	@Test
 	public void icon() {

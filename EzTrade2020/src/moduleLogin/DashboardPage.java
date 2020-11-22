@@ -1,4 +1,4 @@
-package demo;
+package moduleLogin;
 
 import org.openqa.selenium.WebDriver;
 import utilities.Links;

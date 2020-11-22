@@ -1,4 +1,4 @@
-package demo;
+package moduleLogin;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +25,8 @@ public class BaseTest {
 		*/
 		@BeforeMethod
 		public void setUp() {
-			System.setProperty("webdriver.chrome.driver","E:\\downsload\\selenium\\chromedriver_win32_85\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver","E:\\downsload\\selenium\\chromedriver_win32_85\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","D:\\dowload\\Programs\\selenium\\chromedriver.exe");
 			driver = new ChromeDriver();
 			// Get link EzTrade
 			driver.get(Links.URL_login);

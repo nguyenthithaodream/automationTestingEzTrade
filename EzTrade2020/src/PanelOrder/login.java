@@ -16,5 +16,6 @@ public class login {
 		driver.findElement(By.id("txtPassword")).sendKeys(password);
 		driver.findElement(By.id("btnSubmit")).click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 	}
 }

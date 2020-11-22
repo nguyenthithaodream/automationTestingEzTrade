@@ -1,10 +1,10 @@
-package demo;
+package moduleLogin;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
-  public String account = "550880";
+  public String account = "000294";
   public String password = "fpts12345";
   
   WebDriver driver;
