@@ -1,9 +1,6 @@
 package moduleLogin;
 
 import org.testng.annotations.Test;
-
-//import org.openqa.selenium.Alert;
-
 import org.testng.Assert;
 import utilities.Links;
 
@@ -21,8 +18,7 @@ import utilities.Links;
 		public void loginWithSpace () {
 			loginPg = new LoginPage(driver);
 			loginPg.login("", "");
-			//Alert alert;
-			Assert.assertEquals(driver.switchTo().alert().getText(),"Vui lòng không để trống mật khẩu");
+			compareDataOfAlert("Vui lòng không để trống mật khẩu");
 		}
 		
 		@Test
@@ -34,17 +30,23 @@ import utilities.Links;
 		
 		@Test
 		public void loginWrongAccountPassword() {
-			
+			loginPg = new LoginPage(driver);
+			loginPg.login("0000000", "hhhhhhhhh");
+			compareDataOfAlert("Tài khoản không hợp lệ xin vui lòng nhập đúng tên đăng nhập");
 		}
 		
 		@Test
 		public void loginWrongAccount() {
-			
+			loginPg = new LoginPage(driver);
+			loginPg.login("000000", "fpts12345");
+			compareDataOfAlert("Tên đăng nhập không chính xác");
 		}
 		
 		@Test
 		public void loginWrongPassword() {
-			
+			loginPg = new LoginPage(driver);
+			loginPg.login("000294", "abc");
+			compareDataOfAlert("Sai mật khẩu, vui lòng đăng nhập lại");
 		}
 		
 	}
