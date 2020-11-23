@@ -1,0 +1,11 @@
+KB1_1:
+
+"E:\downloads\others programs\jmeter\apache-jmeter-5.3\bin\jmeter" -n -t "E:\downloads\run_jmeter\1000_users_login_with_right_password.jmx" -l "E:\downloads\run_jmeter\kb1_1.jtl" -j "E:\downloads\run_jmeter\kb1_1.log" -e -o "E:\downloads\run_jmeter\report1_1"
+KB1_2:
+
+"E:\downloads\others programs\jmeter\apache-jmeter-5.3\bin\jmeter" -n -t "E:\downloads\run_jmeter\1000_users_login_with_right_password.jmx" -l "E:\downloads\run_jmeter\kb1_2.jtl" -j "E:\downloads\run_jmeter\kb1_2.log" -e -o "E:\downloads\run_jmeter\report1_2"
+KB2:
+
+"E:\downloads\others programs\jmeter\apache-jmeter-5.3\bin\jmeter" -n -t "E:\downloads\run_jmeter\Forgot_Password.jmx" -l "E:\downloads\run_jmeter\kb2.jtl" -j "E:\downloads\run_jmeter\kb2.log" -e -o "E:\downloads\run_jmeter\report2"
+
+jmeter -n -t "Đường dẫn file jmx" -l "Đường dẫn file jtl" -j "Đường dẫn file log" -e -o "Đường dần folder file report"
