@@ -1,11 +1,7 @@
-package moduleLogin;
+package login;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class LoginPage {
   public String account = "000294";

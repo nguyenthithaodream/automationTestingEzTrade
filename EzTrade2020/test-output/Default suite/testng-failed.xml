@@ -3,13 +3,29 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="moduleLogin.LoginTest">
+=======
+      <class name="PanelOrder.checkValidationTest">
+>>>>>>> branch 'master' of https://github.com/nguyenthithaodream/automationTestingEzTrade
         <methods>
+<<<<<<< HEAD
           <include name="tearDown"/>
+=======
+>>>>>>> branch 'master' of https://github.com/nguyenthithaodream/automationTestingEzTrade
           <include name="setUp"/>
+<<<<<<< HEAD
           <include name="checkLinks"/>
+=======
+          <include name="tearDown"/>
+          <include name="checkValidation_MaCK"/>
+>>>>>>> branch 'master' of https://github.com/nguyenthithaodream/automationTestingEzTrade
         </methods>
+<<<<<<< HEAD
       </class> <!-- moduleLogin.LoginTest -->
+=======
+      </class> <!-- PanelOrder.checkValidationTest -->
+>>>>>>> branch 'master' of https://github.com/nguyenthithaodream/automationTestingEzTrade
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
