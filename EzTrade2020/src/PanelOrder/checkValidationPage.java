@@ -10,8 +10,11 @@ public class checkValidationPage {
 		this.driver = driver;
 	}
 	
-	public void insertInformation(String content, String xpath) {
+	public void insertInformation (String content, String xpath) {
 		driver.findElement(By.xpath(xpath)).sendKeys(content);
-		driver.findElement(By.xpath("//input[@id ='btnBuySend']")).click();
+		driver.findElement(By.id("btnBuySend")).click();
+		driver.findElement(By.xpath(xpath)).clear();
 	}
+	
+	
 }

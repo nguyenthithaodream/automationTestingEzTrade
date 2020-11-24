@@ -1,8 +1,6 @@
-package login;
+package moduleLogin;
 
 import org.testng.annotations.Test;
-
-import Library.BaseTest;
 
 import java.net.MalformedURLException;
 import java.util.List;
@@ -26,8 +24,10 @@ import utilities.Links;
 				String url = ele.getAttribute("href");
 				verifyLinkActive(url);
 			}
-		}
 			
+		
+		}
+		/*	
 		@Test
 		public void loginWithSpace () {
 			loginPg = new LoginPage(driver);
@@ -62,5 +62,5 @@ import utilities.Links;
 			loginPg.login("000294", "abc");
 			compareDataOfAlert("Sai mật khẩu, vui lòng đăng nhập lại");
 		}
-		
+		*/
 	}
