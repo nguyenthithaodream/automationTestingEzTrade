@@ -1,7 +1,8 @@
 package PanelOrder;
 
 import org.testng.annotations.Test;
-import login.BaseTest;
+
+import Library.BaseTest;
 
 public class BuyOrderTest extends BaseTest{
   

@@ -1,5 +1,8 @@
-package login;
+package Library;
 
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -57,4 +60,19 @@ public class BaseTest {
 			  driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys(Password);
 			  driver.findElement(By.xpath("//button[@id='btnSubmit']")).click();
 		  }
+		public void verifyLinkActive(String linkURL) throws MalformedURLException {
+			try {
+				URL url =  new URL(linkURL);
+				HttpURLConnection URLCon = (HttpURLConnection) url.openConnection();
+				URLCon.setConnectTimeout(300);
+				URLCon.connect();
+				if(URLCon.getResponseCode() == 200) {
+					System.out.println(url + "-" + URLCon.getResponseCode());
+				}
+				else {
+					System.out.println(url + "-" + URLCon.getResponseCode());
+				}
+			}
+			catch (Exception e) {}
+		}
 }

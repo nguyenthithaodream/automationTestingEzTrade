@@ -1,6 +1,14 @@
 package login;
 
 import org.testng.annotations.Test;
+
+import Library.BaseTest;
+
+import java.net.MalformedURLException;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import utilities.Links;
 
@@ -10,10 +18,16 @@ import utilities.Links;
 		String password = "fpts12345";
 		
 		@Test
-		public void checkUI() {
-			
+		public void checkLinks() throws MalformedURLException {
+			List<WebElement> links = driver.findElements(By.tagName("a"));
+			System.out.println("The total number of link is " + links.size());
+			for(int i = 0; i < links.size(); i++) {
+				WebElement ele = links.get(i);
+				String url = ele.getAttribute("href");
+				verifyLinkActive(url);
+			}
 		}
-		
+			
 		@Test
 		public void loginWithSpace () {
 			loginPg = new LoginPage(driver);
