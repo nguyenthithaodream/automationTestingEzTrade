@@ -5,9 +5,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class login {
+public class SellOrderPage {
 	WebDriver driver;
-	public  login(WebDriver driver) {
+	public  SellOrderPage(WebDriver driver) {
 		this.driver =driver;
 	}
 	public static void loginEzTrade(WebDriver driver, String account, String password) {

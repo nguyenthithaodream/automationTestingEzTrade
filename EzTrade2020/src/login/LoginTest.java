@@ -1,4 +1,4 @@
-package moduleLogin;
+package login;
 
 import org.testng.annotations.Test;
 import org.testng.Assert;

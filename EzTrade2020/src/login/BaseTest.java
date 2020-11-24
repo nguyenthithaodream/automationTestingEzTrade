@@ -1,8 +1,9 @@
-package moduleLogin;
+package login;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -13,7 +14,7 @@ import utilities.Links;
 
 public class BaseTest {
 	
-		WebDriver driver;
+		public WebDriver driver;
 		
 		/*public void login(String Account, String Password) {
 			WebDriverWait wait = new WebDriverWait(driver,30);
@@ -51,4 +52,9 @@ public class BaseTest {
 			}
 		}
 		
+		public void login(String Account, String Password) {
+			  driver.findElement(By.xpath("//input[@id='txtAccountNo']")).sendKeys(Account);
+			  driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys(Password);
+			  driver.findElement(By.xpath("//button[@id='btnSubmit']")).click();
+		  }
 }

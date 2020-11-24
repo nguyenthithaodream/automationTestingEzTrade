@@ -2,7 +2,7 @@ package PanelOrder;
 
 import org.testng.annotations.Test;
 
-public class SendOrders {
+public class SellOrderTest {
   @Test
   public void f() {
   }
