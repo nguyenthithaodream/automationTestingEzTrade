@@ -1,5 +1,8 @@
 package moduleLogin;
 
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -26,8 +29,8 @@ public class BaseTest {
 		*/
 		@BeforeMethod
 		public void setUp() {
-			//System.setProperty("webdriver.chrome.driver","E:\\downsload\\selenium\\chromedriver_win32_85\\chromedriver.exe");
-			System.setProperty("webdriver.chrome.driver","D:\\dowload\\Programs\\selenium\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","E:\\downloads\\selenium\\chromedriver_win32_85\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver","D:\\dowload\\Programs\\selenium\\chromedriver.exe");
 			driver = new ChromeDriver();
 			// Get link EzTrade
 			driver.get(Links.URL_login);
@@ -49,6 +52,22 @@ public class BaseTest {
 			catch(Exception e){
 				e.printStackTrace();
 			}
+		}
+		
+		public void verifyLinkActive(String linkURL) throws MalformedURLException {
+			try {
+				URL url =  new URL(linkURL);
+				HttpURLConnection URLCon = (HttpURLConnection) url.openConnection();
+				URLCon.setConnectTimeout(300);
+				URLCon.connect();
+				if(URLCon.getResponseCode() == 200) {
+					System.out.println(url + "-" + URLCon.getResponseCode());
+				}
+				else {
+					System.out.println(url + "-" + URLCon.getResponseCode());
+				}
+			}
+			catch (Exception e) {}
 		}
 		
 }
