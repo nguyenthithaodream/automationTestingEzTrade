@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="14895" started-at="2020-11-25T06:50:25 ICT" finished-at="2020-11-25T06:50:40 ICT">
+  <suite name="Default suite" duration-ms="20609" started-at="2020-11-25T17:29:51 ICT" finished-at="2020-11-25T17:30:11 ICT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14895" started-at="2020-11-25T06:50:25 ICT" finished-at="2020-11-25T06:50:40 ICT">
+    <test name="Default test" duration-ms="20609" started-at="2020-11-25T17:29:51 ICT" finished-at="2020-11-25T17:30:11 ICT">
       <class name="PanelOrder.checkValidationTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:PanelOrder.checkValidationTest@627551fb]" name="setUp" is-config="true" duration-ms="7007" started-at="2020-11-25T06:50:26 ICT" finished-at="2020-11-25T06:50:33 ICT">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:PanelOrder.checkValidationTest@5bc79255]" name="setUp" is-config="true" duration-ms="6945" started-at="2020-11-25T17:29:51 ICT" finished-at="2020-11-25T17:29:58 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="checkValidation_MaCK()[pri:0, instance:PanelOrder.checkValidationTest@627551fb]" name="checkValidation_MaCK" duration-ms="7833" started-at="2020-11-25T06:50:33 ICT" finished-at="2020-11-25T06:50:40 ICT">
+        <test-method status="PASS" signature="checkValidation_KL()[pri:0, instance:PanelOrder.checkValidationTest@5bc79255]" name="checkValidation_KL" duration-ms="13642" started-at="2020-11-25T17:29:58 ICT" finished-at="2020-11-25T17:30:11 ICT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkValidation_MaCK -->
+        </test-method> <!-- checkValidation_KL -->
       </class> <!-- PanelOrder.checkValidationTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

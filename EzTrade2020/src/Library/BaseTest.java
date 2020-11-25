@@ -23,19 +23,12 @@ public class BaseTest {
 	
 		public WebDriver driver;
 		
-		/*public void login(String Account, String Password) {
-			WebDriverWait wait = new WebDriverWait(driver,30);
-			//driver.findElement(By.xpath("//input[@id='btnContineLogin']")).click();
-			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='txtAccountNo']")));
-			driver.findElement(By.xpath("//input[@id='txtAccountNo']")).sendKeys(Account);
-			driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys(Password);
-			driver.findElement(By.xpath("//button[@id='btnSubmit']")).click();
-		}
-		*/
+		
+	
 		@BeforeMethod
 		public void setUp() {
-			//System.setProperty("webdriver.chrome.driver","E:\\downloads\\selenium\\chromedriver_win32_85\\chromedriver.exe");
-			System.setProperty("webdriver.chrome.driver","D:\\dowload\\Programs\\selenium\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","E:\\downloads\\selenium\\chromedriver_win32_85\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver","D:\\dowload\\Programs\\selenium\\chromedriver.exe");
 			DesiredCapabilities dc = new DesiredCapabilities();
 			dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
 			driver = new ChromeDriver(dc);

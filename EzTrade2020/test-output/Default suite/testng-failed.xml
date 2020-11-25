@@ -5,7 +5,7 @@
     <classes>
       <class name="PanelOrder.checkValidationTest">
         <methods>
-          <include name="checkValidation_MaCK"/>
+          <include name="checkValidation_KL"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- PanelOrder.checkValidationTest -->
