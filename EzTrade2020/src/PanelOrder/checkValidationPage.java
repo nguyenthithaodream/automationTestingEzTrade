@@ -5,6 +5,11 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import javafx.scene.control.Alert;
 
 public class checkValidationPage {
 	WebDriver driver;
@@ -29,16 +34,19 @@ public class checkValidationPage {
 	//Enter data for 3 fields
 	
 	public void insertAllField (String MaCK, String KL, String Gia) throws InterruptedException {
+		driver.findElement(By.xpath("//input[@id='txtSymbol']")).clear();
 		driver.findElement(By.xpath("//input[@id='txtSymbol']")).click();
 		driver.findElement(By.xpath("//input[@id='txtSymbol']")).sendKeys(MaCK);
 		
+		driver.findElement(By.xpath("//input[@sid='txtQty']")).clear();
 		driver.findElement(By.xpath("//input[@sid='txtQty']")).click();
 		driver.findElement(By.xpath("//input[@sid='txtQty']")).sendKeys(KL);
 		
+		driver.findElement(By.xpath("//input[@id='txtPrice']")).clear();
 		driver.findElement(By.xpath("//input[@id='txtPrice']")).click();
 		driver.findElement(By.xpath("//input[@id='txtPrice']")).sendKeys(Gia);
 		
-		Thread.sleep(1000);
+		
 		driver.findElement(By.id("btnBuySend")).click();
 	}
 	
@@ -64,23 +72,27 @@ public class checkValidationPage {
 
 	}
 	
-	//Get references price
-	public String GetRefPri(String MaCK) {
+	//Get price
+	public String GetPri(String MaCK, String id) throws InterruptedException {
 		insertJustField(MaCK, "//input[@id='txtSymbol']");
 		driver.findElement(By.xpath("//input[@sid='txtQty']")).click();
-		return driver.findElement(By.id("spnRefPrice")).getText();
+		Thread.sleep(1000);
+		return driver.findElement(By.id(id)).getText();
 	}
 	
-	//Get ceiling price
-	public String GetCeiPri(String MaCK) {
-			insertJustField(MaCK, "//input[@id='txtSymbol']");
-			driver.findElement(By.xpath("//input[@sid='txtQty']")).click();
-			return driver.findElement(By.id("spnCeilPrice")).getText();
+	//Confirm password
+	public void confirmPassword(String password) throws InterruptedException {
+		driver.findElement(By.id("txtPass2OF")).sendKeys(password);
+		driver.findElement(By.id("btnSendOF")).click();
+		Thread.sleep(2000);
 	}
-	//Get floor price
-	public String GetFloPri(String MaCK) {
-		insertJustField(MaCK, "//input[@id='txtSymbol']");
-		driver.findElement(By.xpath("//input[@sid='txtQty']")).click();
-		return driver.findElement(By.id("spnFloorPrice")).getText();
-	}	
+	
+	//Check confirm password successful
+	public void successfulmessage(String message) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("modal-content xacNhanDatLenh")));
+		WebElement ele = driver.findElement(By.id("tdConfirmOrderFormMess"));
+		ele.getText();
+		Assert.assertEquals(ele.getText(),message);
+	}
 }

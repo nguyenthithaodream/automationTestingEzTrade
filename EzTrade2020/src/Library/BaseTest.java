@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
@@ -29,8 +30,8 @@ public class BaseTest {
 	
 		@BeforeMethod
 		public void setUp() {
-			//System.setProperty("webdriver.chrome.driver","E:\\downloads\\selenium\\chromedriver_win32_85\\chromedriver.exe");
-			System.setProperty("webdriver.chrome.driver","D:\\dowload\\Programs\\selenium\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","E:\\downloads\\selenium\\chromedriver_win32_85\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver","D:\\dowload\\Programs\\selenium\\chromedriver.exe");
 			DesiredCapabilities dc = new DesiredCapabilities();
 			dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
 			driver = new ChromeDriver(dc);
@@ -45,23 +46,39 @@ public class BaseTest {
 		}
 		*/
 		public void compareDataOfAlert(String content) throws AWTException { //content is expected content of alert
+			
 			try {
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				Alert alert = driver.switchTo().alert();
 				Assert.assertEquals(alert.getText(),content);
-	
-				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				Robot rb = new Robot();
-				rb.keyPress(KeyEvent.VK_ESCAPE);
-				rb.keyRelease(KeyEvent.VK_ESCAPE);
-				rb.keyPress(KeyEvent.VK_ESCAPE);
-				rb.keyRelease(KeyEvent.VK_ESCAPE);
-				rb.keyPress(KeyEvent.VK_ESCAPE);
-				rb.keyRelease(KeyEvent.VK_ESCAPE);
+				alert.accept();
+				//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				//Robot rb = new Robot();
+				//rb.keyPress(KeyEvent.VK_ESCAPE);
+				//rb.keyRelease(KeyEvent.VK_ESCAPE);
+				//rb.keyPress(KeyEvent.VK_ESCAPE);
+				//rb.keyRelease(KeyEvent.VK_ESCAPE);
+				//rb.keyPress(KeyEvent.VK_ESCAPE);
+				//rb.keyRelease(KeyEvent.VK_ESCAPE);
 			}
 			catch(UnhandledAlertException e){
 				e.printStackTrace();
 			}
+			/*
+			try {
+			    //click(myButton);
+				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			} catch (UnhandledAlertException f) {
+			    try {
+			        Alert alert = driver.switchTo().alert();
+			        String alertText = alert.getText();
+			        Assert.assertEquals(alertText,content);
+			        alert.accept();
+			    } catch (NoAlertPresentException e) {
+			        e.printStackTrace();
+			    }
+			}*/
+			
 		}
 		
 		public void login(String Account, String Password) {

@@ -5,7 +5,7 @@
     <classes>
       <class name="PanelOrder.checkValidationTest">
         <methods>
-          <include name="checkValidation_Gia"/>
+          <include name="TC_003_checkValidation_Gia"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- PanelOrder.checkValidationTest -->

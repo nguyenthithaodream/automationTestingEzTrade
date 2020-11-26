@@ -1,9 +1,8 @@
 package PanelOrder;
 
 import java.awt.AWTException;
-
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import Library.BaseTest;
@@ -11,10 +10,10 @@ import Library.BaseTest;
 public class checkValidationTest extends BaseTest{
   checkValidationPage checkValidationPg;
   String KhoiLuongMax;
-  int ChangeKLMax;
- /*
+  float Change;
+ 
   @Test
-  public void checkValidation_MaCK() throws InterruptedException {
+  public void TC_001_checkValidation_MaCK() throws InterruptedException, AWTException {
 	  login("000294","fpts12345");
 	  checkValidationPg = new checkValidationPage(driver);
 	  
@@ -32,7 +31,7 @@ public class checkValidationTest extends BaseTest{
   }
   
   @Test
-  public void checkValidation_KL() throws InterruptedException, AWTException {
+  public void TC_002_checkValidation_KL() throws InterruptedException, AWTException {
 	  login("000294","fpts12345");
 	  checkValidationPg = new checkValidationPage(driver);
 	  
@@ -46,18 +45,6 @@ public class checkValidationTest extends BaseTest{
 	  
 	  //Check the quantities input is greater than the maximum quantities 
 	  KhoiLuongMax = checkValidationPg.getMaxNum("ABC");
-	  //fix error java.lang.NumberFormatException.forInputString(Unknown Source)
-	  
-	  //try{
-	 	//  ChangeKLMax = Integer.parseInt(KhoiLuongMax);
-		  
-		 
-		//} catch(NumberFormatException ex){ // handle your exception
-		//  ex.getStackTrace();
-		//}
-	  
-	 // ChangeKLMax = ChangeKLMax + 100;
-	 // KhoiLuongMax = String.valueOf(ChangeKLMax);
 	  
 	  driver.findElement(By.xpath("//input[@sid='txtQty']")).sendKeys(KhoiLuongMax + 0);
 	  driver.findElement(By.xpath("//input[@id='txtPrice']")).click();
@@ -79,27 +66,44 @@ public class checkValidationTest extends BaseTest{
 	  checkValidationPg.insertField("!@#", "//input[@id='txtSymbol']");
 	  compareDataOfAlert("Không tồn tại mã CK này");
   }
-  */
+  
   @Test
-  public void checkValidation_Gia() throws InterruptedException, AWTException {
+  public void TC_003_checkValidation_Gia() throws InterruptedException, AWTException {
 	  login("000294","fpts12345");
 	  checkValidationPg = new checkValidationPage(driver);
 	  
 	  //Check enter value is 0
-	  //String RefPri = checkValidationPg.GetRefPri("ABC"); //get the reference price
+
+	  //TEST FAIL BECAUSE IT DOSEN'T TAKE VALUE OF 0 ===>>> Bật ra 1 popup chưa nhập giá nữa làm case fail
 	  checkValidationPg.insertAllField("ABC", "10","0");
+	  Thread.sleep(1000);
 	  compareDataOfAlert("Giá không hợp lệ.");
-	  
+	  Alert al = driver.switchTo().alert();
+	  al.accept();
+
 	  //Check character input
 	  checkValidationPg.insertAllField("ABC", "100","abc");
+	  Thread.sleep(1000);
 	  compareDataOfAlert("Giá không hợp lệ.");
+	  al.accept();
 	  
 	  //Check enter the price is more than ceiling price
-	  String ceiPri = checkValidationPg.GetCeiPri("ABC");
-	  checkValidationPg.insertJustField(ceiPri + 0, "//input[@id='txtPrice']");
-	  compareDataOfAlert("Giá không hợp lệ.");
+	  String ceiPri = checkValidationPg.GetPri("ABC","spnCeilPrice");
+	  checkValidationPg.insertAllField("ABC","10",ceiPri + 9);
+	  Thread.sleep(1000);
+	  compareDataOfAlert("Giá không được lớn hơn giá Trần.");
+	  
 	  
 	  //Check enter the price is more than the floor price
+	  String floPri = checkValidationPg.GetPri("ABC","spnFloorPrice");
+	  Change = Float.parseFloat(floPri);
+	  Change = Change - 1;
+	  String con = String.valueOf(Change);
+	  checkValidationPg.insertAllField("ABC","10",con);
+	  Thread.sleep(1000);
+	  compareDataOfAlert("Giá không được nhỏ hơn giá Sàn.");
+	  
+	  //Check for wrong entry of price step
 	  
   }
 }
