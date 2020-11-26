@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import Library.BaseTest;
 
+import java.awt.AWTException;
 import java.net.MalformedURLException;
 import java.util.List;
 
@@ -29,7 +30,7 @@ import utilities.Links;
 		}
 			
 		@Test
-		public void loginWithSpace () {
+		public void loginWithSpace () throws AWTException {
 			loginPg = new LoginPage(driver);
 			loginPg.login("", "");
 			compareDataOfAlert("Vui lòng không để trống mật khẩu");
@@ -43,21 +44,21 @@ import utilities.Links;
 		}
 		
 		@Test
-		public void loginWrongAccountPassword() {
+		public void loginWrongAccountPassword() throws AWTException {
 			loginPg = new LoginPage(driver);
 			loginPg.login("0000000", "hhhhhhhhh");
 			compareDataOfAlert("Tài khoản không hợp lệ xin vui lòng nhập đúng tên đăng nhập");
 		}
 		
 		@Test
-		public void loginWrongAccount() {
+		public void loginWrongAccount() throws AWTException {
 			loginPg = new LoginPage(driver);
 			loginPg.login("000000", "fpts12345");
 			compareDataOfAlert("Tên đăng nhập không chính xác");
 		}
 		
 		@Test
-		public void loginWrongPassword() {
+		public void loginWrongPassword() throws AWTException {
 			loginPg = new LoginPage(driver);
 			loginPg.login("000294", "abc");
 			compareDataOfAlert("Sai mật khẩu, vui lòng đăng nhập lại");

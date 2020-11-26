@@ -9,7 +9,7 @@ import Library.BaseTest;
 public class BuyOrderTest extends BaseTest{
   
 	@Test
-	public void checkValidation() throws AWTException {
+	public void checkValidation() throws AWTException, InterruptedException {
 	  login("000294","fpts12345");
 	  //Check validation of textbox Mã CK
 	  

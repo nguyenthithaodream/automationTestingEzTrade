@@ -1,5 +1,6 @@
 package Library;
 
+import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.net.HttpURLConnection;
@@ -10,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.CapabilityType;
@@ -27,8 +29,8 @@ public class BaseTest {
 	
 		@BeforeMethod
 		public void setUp() {
-			System.setProperty("webdriver.chrome.driver","E:\\downloads\\selenium\\chromedriver_win32_85\\chromedriver.exe");
-			//System.setProperty("webdriver.chrome.driver","D:\\dowload\\Programs\\selenium\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver","E:\\downloads\\selenium\\chromedriver_win32_85\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","D:\\dowload\\Programs\\selenium\\chromedriver.exe");
 			DesiredCapabilities dc = new DesiredCapabilities();
 			dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
 			driver = new ChromeDriver(dc);
@@ -42,13 +44,13 @@ public class BaseTest {
 			driver.quit();
 		}
 		*/
-		public void compareDataOfAlert(String content) { //content is expected content of alert
+		public void compareDataOfAlert(String content) throws AWTException { //content is expected content of alert
 			try {
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				Alert alert = driver.switchTo().alert();
 				Assert.assertEquals(alert.getText(),content);
-				alert.accept();
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				Robot rb = new Robot();
 				rb.keyPress(KeyEvent.VK_ESCAPE);
 				rb.keyRelease(KeyEvent.VK_ESCAPE);
@@ -57,7 +59,7 @@ public class BaseTest {
 				rb.keyPress(KeyEvent.VK_ESCAPE);
 				rb.keyRelease(KeyEvent.VK_ESCAPE);
 			}
-			catch(Exception e){
+			catch(UnhandledAlertException e){
 				e.printStackTrace();
 			}
 		}
@@ -66,7 +68,7 @@ public class BaseTest {
 			  driver.findElement(By.xpath("//input[@id='txtAccountNo']")).sendKeys(Account);
 			  driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys(Password);
 			  driver.findElement(By.xpath("//button[@id='btnSubmit']")).click();
-			  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			  driver.findElement(By.id("onesignal-slidedown-allow-button")).click();
 			  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			 
