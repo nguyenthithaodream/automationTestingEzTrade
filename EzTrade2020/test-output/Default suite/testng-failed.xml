@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="PanelOrder.checkValidationTest">
+      <class name="PanelOrder.Normal_SellOrderTest">
         <methods>
-          <include name="TC_003_checkValidation_Gia"/>
+          <include name="TC01_sendingOrderSuccessful"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- PanelOrder.checkValidationTest -->
+      </class> <!-- PanelOrder.Normal_SellOrderTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
