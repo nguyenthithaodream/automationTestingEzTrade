@@ -27,8 +27,8 @@ public class checkValidationPage {
 		driver.findElement(By.xpath(xpath)).click();
 		driver.findElement(By.xpath(xpath)).sendKeys(content);
 		driver.findElement(By.id("btnBuySend")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(xpath)).clear();
+		//Thread.sleep(1000);
+		//driver.findElement(By.xpath(xpath)).clear();
 	}
 	
 	//Enter data for 3 fields

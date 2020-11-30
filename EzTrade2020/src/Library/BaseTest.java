@@ -53,13 +53,13 @@ public class BaseTest {
 				Assert.assertEquals(alert.getText(),content);
 				alert.accept();
 				//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				//Robot rb = new Robot();
-				//rb.keyPress(KeyEvent.VK_ESCAPE);
-				//rb.keyRelease(KeyEvent.VK_ESCAPE);
-				//rb.keyPress(KeyEvent.VK_ESCAPE);
-				//rb.keyRelease(KeyEvent.VK_ESCAPE);
-				//rb.keyPress(KeyEvent.VK_ESCAPE);
-				//rb.keyRelease(KeyEvent.VK_ESCAPE);
+				Robot rb = new Robot();
+				rb.keyPress(KeyEvent.VK_ESCAPE);
+				rb.keyRelease(KeyEvent.VK_ESCAPE);
+				rb.keyPress(KeyEvent.VK_ESCAPE);
+				rb.keyRelease(KeyEvent.VK_ESCAPE);
+				rb.keyPress(KeyEvent.VK_ESCAPE);
+				rb.keyRelease(KeyEvent.VK_ESCAPE);
 			}
 			catch(UnhandledAlertException e){
 				e.printStackTrace();

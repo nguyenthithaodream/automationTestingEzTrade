@@ -1,6 +1,9 @@
 package PanelOrder;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -11,7 +14,7 @@ public class checkValidationTest extends BaseTest{
   checkValidationPage checkValidationPg;
   String KhoiLuongMax;
   float Change;
- 
+ /*
   @Test
   public void TC_001_checkValidation_MaCK() throws InterruptedException, AWTException {
 	  login("000294","fpts12345");
@@ -30,17 +33,24 @@ public class checkValidationTest extends BaseTest{
 	  compareDataOfAlert("Không tồn tại mã CK này");
   }
   
+ 
   @Test
   public void TC_002_checkValidation_KL() throws InterruptedException, AWTException {
 	  login("000294","fpts12345");
 	  checkValidationPg = new checkValidationPage(driver);
 	  
 	  //Check enter characters
-	  checkValidationPg.insertField("abc", "//input[@sid='txtQty']");
+	  //checkValidationPg.insertField("abc", "//input[@sid='txtQty']");
+	  driver.findElement(By.xpath("//input[@sid='txtQty']")).sendKeys("abc");
+	  driver.findElement(By.xpath("//input[@id='txtSymbol']")).click();
+	  Thread.sleep(1000);
 	  compareDataOfAlert("Số lượng không hợp lệ (Số nguyên lớn hơn 0 )");
 	  
 	  //Check enter value is 0
-	  checkValidationPg.insertField("0", "//input[@sid='txtQty']");
+	  //checkValidationPg.insertField("0", "//input[@sid='txtQty']");
+	  driver.findElement(By.xpath("//input[@sid='txtQty']")).sendKeys("0");
+	  driver.findElement(By.xpath("//input[@id='txtSymbol']")).click();
+	  Thread.sleep(1000);
 	  compareDataOfAlert("Số lượng không hợp lệ (Số nguyên lớn hơn 0 )");
 	  
 	  //Check the quantities input is greater than the maximum quantities 
@@ -63,10 +73,11 @@ public class checkValidationTest extends BaseTest{
 	  compareDataOfAlert("Số lượng Báo giá là bội số của 10 với sàn HOSE");
 	    
 	  //Check character input
-	  checkValidationPg.insertField("!@#", "//input[@id='txtSymbol']");
+	  checkValidationPg.insertJustField("!@#","//input[@id='txtSymbol']");
+	  driver.findElement(By.xpath("//input[@id='txtPrice']")).click();
 	  compareDataOfAlert("Không tồn tại mã CK này");
   }
-  
+  */
   @Test
   public void TC_003_checkValidation_Gia() throws InterruptedException, AWTException {
 	  login("000294","fpts12345");
@@ -78,21 +89,31 @@ public class checkValidationTest extends BaseTest{
 	  checkValidationPg.insertAllField("ABC", "10","0");
 	  Thread.sleep(1000);
 	  compareDataOfAlert("Giá không hợp lệ.");
-	  Alert al = driver.switchTo().alert();
-	  al.accept();
-
+	  Thread.sleep(1000);
+	  Robot rb = new Robot();
+	  rb.keyPress(KeyEvent.VK_ESCAPE);
+	  rb.keyRelease(KeyEvent.VK_ESCAPE);
+	  rb.keyPress(KeyEvent.VK_ESCAPE);
+	  rb.keyRelease(KeyEvent.VK_ESCAPE);
+	 
 	  //Check character input
 	  checkValidationPg.insertAllField("ABC", "100","abc");
 	  Thread.sleep(1000);
 	  compareDataOfAlert("Giá không hợp lệ.");
-	  al.accept();
+	  //Robot rb = new Robot();
+	  Thread.sleep(1000);
+	  rb.keyPress(KeyEvent.VK_ESCAPE);
+	  rb.keyRelease(KeyEvent.VK_ESCAPE);
+	  rb.keyPress(KeyEvent.VK_ESCAPE);
+	  rb.keyRelease(KeyEvent.VK_ESCAPE);
+	  
 	  
 	  //Check enter the price is more than ceiling price
 	  String ceiPri = checkValidationPg.GetPri("ABC","spnCeilPrice");
 	  checkValidationPg.insertAllField("ABC","10",ceiPri + 9);
 	  Thread.sleep(1000);
 	  compareDataOfAlert("Giá không được lớn hơn giá Trần.");
-	  
+	  /*
 	  
 	  //Check enter the price is more than the floor price
 	  String floPri = checkValidationPg.GetPri("ABC","spnFloorPrice");
@@ -104,6 +125,7 @@ public class checkValidationTest extends BaseTest{
 	  compareDataOfAlert("Giá không được nhỏ hơn giá Sàn.");
 	  
 	  //Check for wrong entry of price step
-	  
+	  */
   }
+  
 }

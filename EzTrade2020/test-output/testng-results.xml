@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="20454" started-at="2020-11-26T11:30:46 ICT" finished-at="2020-11-26T11:31:06 ICT">
+  <suite name="Default suite" duration-ms="25015" started-at="2020-11-30T09:56:07 ICT" finished-at="2020-11-30T09:56:32 ICT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="20454" started-at="2020-11-26T11:30:46 ICT" finished-at="2020-11-26T11:31:06 ICT">
+    <test name="Default test" duration-ms="25015" started-at="2020-11-30T09:56:07 ICT" finished-at="2020-11-30T09:56:32 ICT">
       <class name="PanelOrder.checkValidationTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:PanelOrder.checkValidationTest@5ae63ade]" name="setUp" is-config="true" duration-ms="6592" started-at="2020-11-26T11:30:46 ICT" finished-at="2020-11-26T11:30:53 ICT">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:PanelOrder.checkValidationTest@5ae63ade]" name="setUp" is-config="true" duration-ms="6450" started-at="2020-11-30T09:56:07 ICT" finished-at="2020-11-30T09:56:13 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="TC_003_checkValidation_Gia()[pri:0, instance:PanelOrder.checkValidationTest@5ae63ade]" name="TC_003_checkValidation_Gia" duration-ms="13839" started-at="2020-11-26T11:30:53 ICT" finished-at="2020-11-26T11:31:06 ICT">
+        <test-method status="PASS" signature="TC_003_checkValidation_Gia()[pri:0, instance:PanelOrder.checkValidationTest@5ae63ade]" name="TC_003_checkValidation_Gia" duration-ms="18545" started-at="2020-11-30T09:56:13 ICT" finished-at="2020-11-30T09:56:32 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_003_checkValidation_Gia -->
