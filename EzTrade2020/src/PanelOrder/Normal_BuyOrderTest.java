@@ -11,7 +11,7 @@ import Library.BaseTest;
 
 public class Normal_BuyOrderTest extends BaseTest{
 	
-	BuyOrderPage BuyOrderPg = new BuyOrderPage(driver);
+	
     //checkValidationPage checkValidationPg;
     Normal_BuyOrderPage Normal_BuyOrderPg;
     
@@ -66,8 +66,29 @@ public class Normal_BuyOrderTest extends BaseTest{
 		Assert.assertEquals(SL.getText(),""); 
 		Assert.assertEquals(Gia.getText(),""); 
 	}
-	//=========================== WRITE PENDING ORDERS==========================================================
-	//Check placed a securities order successful 
-	// CHƯA CHECK ĐƯỢC LỆNH VỚI CÁC ID CÁC LỆNH THAY ĐỔI LIÊN TỤC
 	
+	//Check buy order with wrong password
+	@Test
+	public void TC04_buyOderWrongPassword() throws InterruptedException {
+	 
+		Normal_BuyOrderPg = new Normal_BuyOrderPage(driver);
+		login("000294","fpts12345");
+		String floPri = GetPri("ABC","spnFloorPrice");
+		insertAllField("ABC", "10", floPri);
+		confirmPassword("fpts12");
+		String err = driver.findElement(By.id("spnErrorMess")).getText();
+		Assert.assertEquals(err,"Sai mật khẩu giao dịch");
+	}
+	
+	//Check buy order no enter password
+	@Test
+	public void TC05_buyOderWrongPassword() throws InterruptedException, AWTException {
+	 
+		Normal_BuyOrderPg = new Normal_BuyOrderPage(driver);
+		login("000294","fpts12345");
+		String floPri = GetPri("ABC","spnFloorPrice");
+		insertAllField("ABC", "10", floPri);
+		driver.findElement(By.id("btnSendOF")).click();
+		compareDataOfAlert("Qúy khách chưa nhập mật khẩu giao dịch");
+	}
 }

@@ -5,8 +5,8 @@
     <classes>
       <class name="PanelOrder.Normal_SellOrderTest">
         <methods>
-          <include name="TC01_sendingOrderSuccessful"/>
           <include name="setUp"/>
+          <include name="TC04_reset"/>
         </methods>
       </class> <!-- PanelOrder.Normal_SellOrderTest -->
     </classes>
