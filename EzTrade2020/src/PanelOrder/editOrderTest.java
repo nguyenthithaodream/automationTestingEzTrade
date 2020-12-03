@@ -23,14 +23,15 @@ public class editOrderTest extends BaseTest{
    */
   // Check edit securities order successful
   @Test
-  public void editSucccessful() throws AWTException {
+  public void editSucccessful() throws AWTException, InterruptedException {
 	  editOrderPg = new editOrderPage(driver);
 	  login("000294","fpts12345");
 	  driver.findElement(By.id("rpPending")).click();
+	  Thread.sleep(1000);
 	  editOrderPg.editQuantity(2, "200");
 	  compareDataOfAlert("Lệnh đặt thành công");
   }
-  
+  /*
   //Check reset button
   @Test
   public void editNoPassword() throws AWTException {
@@ -41,7 +42,9 @@ public class editOrderTest extends BaseTest{
 	  WebElement Gia = driver.findElement(By.xpath("//input[@sid='txtPriceActivity']"));
 	  String orgKL = KL.getText();
 	  String orgGia = Gia.getText();
-	  editOrderPg.editQuantity(2, "200");
+	  //editOrderPg.editQuantity(2, "200");
+	  driver.findElement(By.id("btnUpQtyActivity")).click();
+	  driver.findElement(By.id("buttonUpPriceActivity()")).click();
 	  //Function edit price
 	  driver.findElement(By.id("btnResetModify")).click();
 	  String newKL = KL.getText();
@@ -61,6 +64,6 @@ public class editOrderTest extends BaseTest{
   public void editHNXMaxQuantity() {
 	  
   }
-  
+  */
   //Check edit quantity smaller than 100 of HNX/UpCom with Price which is not LO
 }
